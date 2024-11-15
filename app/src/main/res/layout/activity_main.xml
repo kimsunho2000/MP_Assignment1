@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
-        android:layout_height="491dp"
+        android:layout_height="548dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
@@ -21,6 +21,7 @@
         android:background="@null"
         android:ems="10"
         android:gravity="center"
+        android:imeOptions="actionDone"
         android:inputType="text"
         android:text="0" />
 
@@ -33,16 +34,18 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:adjustViewBounds="true"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:adjustViewBounds="true"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
 
