@@ -1,8 +1,6 @@
 package com.example.assignment1;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -31,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //inflate wigets
         imageView1 = findViewById(R.id.imageView1);
@@ -132,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
             // 최종 수정된 값을 EditText에 설정
             editText.setText(String.valueOf(textNum));
+            updateImagesAndButtons(0); //image view 변경
 
         } catch (NumberFormatException e) {
             // 숫자가 아닌 값이 입력된 경우 Toast 메시지 발생
