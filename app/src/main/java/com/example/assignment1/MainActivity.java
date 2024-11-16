@@ -139,4 +139,37 @@ public class MainActivity extends AppCompatActivity {
             // 기본값으로 1 설정
         }
     }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // 현재 EditText 값 저장
+        outState.putString("editTextValue", editText.getText().toString());
+
+        // 현재 이미지 인덱스 저장 (현재 번호를 기반으로 저장)
+        outState.putInt("currentImageIndex", Integer.parseInt(editText.getText().toString()));
+
+        // 버튼 상태 저장
+        outState.putBoolean("button1Visible", button1.getVisibility() == View.VISIBLE);
+        outState.putBoolean("button2Visible", button2.getVisibility() == View.VISIBLE);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // 저장된 상태 복원
+        String savedEditTextValue = savedInstanceState.getString("editTextValue", "1");
+        editText.setText(savedEditTextValue);
+
+        int currentImageIndex = savedInstanceState.getInt("currentImageIndex", 1);
+        updateImagesAndButtons(0); // 상태 복원 후 이미지 업데이트
+
+        // 버튼 상태 복원
+        boolean button1Visible = savedInstanceState.getBoolean("button1Visible", true);
+        button1.setVisibility(button1Visible ? View.VISIBLE : View.INVISIBLE);
+
+        boolean button2Visible = savedInstanceState.getBoolean("button2Visible", true);
+        button2.setVisibility(button2Visible ? View.VISIBLE : View.INVISIBLE);
+    }
 }
